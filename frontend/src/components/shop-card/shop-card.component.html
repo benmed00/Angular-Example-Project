@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{shop.name}}</mat-card-title>
+        <button (click)="toggleLike(shop.id)" class="right-icon" mat-icon-button>
+            <mat-icon [svgIcon]="shop.id | iconFilter"></mat-icon>            
+        </button>
+    </mat-card-header>
+    <img mat-card-image [src]="shop.picture" [alt]="'Photo of' +  shop.name">
+    
+    <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+</mat-card>

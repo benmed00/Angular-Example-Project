@@ -1,0 +1,20 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened="true">
+        <h2>Preferences</h2>
+        <mat-slider #slider (change)="changeDistance($event)" style="margin: 10px" disabled="false" invert="false" max="10" min="1"
+            step="0.5" thumb-label="false" tick-interval="auto">
+        </mat-slider>
+        <p>{{slider.value}} Km</p>
+    </mat-drawer>
+    <mat-drawer-content>
+        <agm-map *ngIf="position" [latitude]="position.lat" [longitude]="position.lng">
+            <agm-marker label="ME" [latitude]="position.lat" [longitude]="position.lng" class="toto">
+                <agm-info-window>You are here</agm-info-window>
+            </agm-marker>
+            <agm-marker *ngFor="let s of shopsPage"  [latitude]="s.location.coordinates[1]" [longitude]="s.location.coordinates[0]" class="toto">
+                <agm-info-window>{{s.name}}</agm-info-window>
+            </agm-marker>
+        </agm-map>
+        <shops-pagination [shops]="shopsPage" [pagination]="paginationOpts" (paged)="pageChanged($event)"></shops-pagination>
+    </mat-drawer-content>
+</mat-drawer-container>

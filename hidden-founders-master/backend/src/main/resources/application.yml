@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/shops
+      repositories:
+        enabled: true
+
+  security:
+    authentication:
+      jwt:
+        validity: 900000 #15*60*1000
+        secret: "TheApplicationSecret"

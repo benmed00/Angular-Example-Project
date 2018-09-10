@@ -1,0 +1,13 @@
+<div *ngIf="shops" class="container">
+  <mat-grid-list [cols]="cols" rowHeight="250px">
+    <mat-grid-tile *ngFor="let shop of shops" >
+      <shop-card  [shop]="shop" colspan="1"></shop-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-paginator *ngIf="pagination"  [length]="pagination.length"
+              [pageSize]="pagination.pageSize"
+              [pageSizeOptions]="pagination.pageSizeOptions"
+              (page)="changedPage($event)">
+  </mat-paginator>  
+</div>
+

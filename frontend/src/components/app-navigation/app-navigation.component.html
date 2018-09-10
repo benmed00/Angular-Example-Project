@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span>
+    <img src="assets/imgs/logo.svg" class="hf-logo">
+  </span>
+  <span class="fill-remaining-space"></span>
+  <span *ngIf="isLoggedIn; else unloged"  >
+    <button routerLink="shops" routerLinkActive="active" mat-button>All Shops</button>
+    <button routerLink="nearby" routerLinkActive="active" mat-button>Nearby Shops</button>
+    <button routerLink="prefered" routerLinkActive="active" mat-button>Prefered Shops</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </span>
+  <ng-template #unloged>
+    <button routerLink="register" routerLinkActive="active" mat-button>Register</button>
+  </ng-template>
+</mat-toolbar>
